@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Picasso Leak</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="NOTICE">This activity launches PhotoActivity which issues the picasso call and then finishes itself. See the logcat for the leak.</string>
+</resources>
