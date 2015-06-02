@@ -3,5 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="NOTICE">This activity launches PhotoActivity which issues the picasso call and then finishes itself. See the logcat for the leak.</string>
+    <string name="NOTICE">This activity launches PhotoActivity which issues the picasso call. Press back a moment after PhotoActivity is launched.
+                            You can rotate the screen and try again until the leak appears. Check the logcat.</string>
 </resources>

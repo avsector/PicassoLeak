@@ -10,22 +10,29 @@ import android.widget.ImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 import static com.squareup.picasso.MemoryPolicy.NO_CACHE;
 import static com.squareup.picasso.MemoryPolicy.NO_STORE;
 
 
 public class PhotoActivity extends AppCompatActivity {
 
-    public static final String URL = "http://www.stockvault.net/photo/download/127093";
+    public static final String URL = "http://89.165.4.189:9004/946243-844583-rtipcxtetyekbccgksk";
 
-    ImageView photo;
+    @InjectView(R.id.photo) ImageView photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
+        ButterKnife.inject(this);
 
-        photo = (ImageView) findViewById(R.id.photo);
+        setupUi();
+    }
+
+    private void setupUi(){
         Picasso.with(this).load(URL).memoryPolicy(NO_CACHE, NO_STORE)
                 .tag(PhotoActivity.class).into(photo, new Callback() {
             @Override
@@ -36,12 +43,11 @@ public class PhotoActivity extends AppCompatActivity {
             @Override
             public void onError() {}
         });
-        finish();
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         Picasso.with(this).cancelTag(PhotoActivity.class);
     }
 }
